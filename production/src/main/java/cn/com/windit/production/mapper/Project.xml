@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.windit.production.dao.IProjectDAO">
+	<resultMap id="ProjectMap" type="cn.com.windit.production.pojo.Project">
+		<!--id映射 -->
+		<id property="projectId" column="projectId" />
+		<!--普通属性映射 -->
+		<result property="projectName" column="projectName" />
+		
+		<association property="windFarm"  column="windFarmId" javaType="cn.com.windit.production.pojo.WindFarm"
+		select="cn.com.windit.production.dao.IWindFarmDAO.getWindFarmById">
+		</association>
+		
+	</resultMap>
+
+	<select id="getProjectById" parameterType="int" resultMap="ProjectMap">
+		select * from Project
+		where projectId = #{projectId}
+	</select>
+
+	<insert id="insertProject" parameterType="cn.com.windit.production.pojo.Project">
+		insert into Project
+		( id, ip, fengchang, xiangmuName, address, dateTime, addTime,
+		updateTime )
+		values
+		( #{id}, #{ip}, #{fengchang}, #{xiangmuName}, #{address},
+		#{dateTime}, #{addTime}, #{updateTime} )
+	</insert>
+
+	<update id="updateProject" parameterType="cn.com.windit.production.pojo.Project">
+		update Project
+		set ip = #{ip}, fengchang = #{fengchang},xiangmuName = #{xiangmuName},
+		address = #{address}, updateTime = #{updateTime}
+		where id = #{id}
+	</update>
+
+	<delete id="deleteProjectById" parameterType="int">
+		delete from Project
+		where id = #{id}
+	</delete>
+
+	<select id="getAllProject" resultMap="ProjectMap">
+		select * from project
+	</select>
+
+	<select id="getProjectByMap" parameterType="java.util.Map"
+		resultMap="ProjectMap">
+		select * from Project
+		<where>
+			<if test="fengchang!=null"> 
+				fengchang like CONCAT('%', #{fengchang}, '%')
+			</if>
+			<if test="xiangmuName!=null"> 
+				and xiangmuName like CONCAT('%', #{xiangmuName}, '%')
+			</if>
+			<if test="startTime!=null and endTime!=null"> 
+				and ( addTime between #{startTime} and #{endTime} )
+			</if>
+		</where>
+	</select>
+
+</mapper>

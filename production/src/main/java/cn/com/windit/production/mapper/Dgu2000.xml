@@ -7,12 +7,12 @@
 		<id property="id" column="id" />
 		<!--普通属性映射 -->
 		<result property="ip" column="ip" />
-		<result property="fengchang" column="fengchang" />
-		<result property="xiangmuName" column="xiangmuName" />
-		<result property="address" column="address" />
-		<result property="dateTime" column="dateTime" />
+		<result property="dateString" column="dateString" />
 		<result property="addTime" column="addTime" />
-		<result property="updateTime" column="updateTime" />
+		<association property="project"  column="projectId" javaType="cn.com.windit.production.pojo.Project"
+		select="cn.com.windit.production.dao.IProjectDAO.getProjectById">
+
+		</association>
 	</resultMap>
 
 	<select id="getDgu2000ById" parameterType="int" resultMap="Dgu2000Map">
@@ -22,17 +22,14 @@
 
 	<insert id="insertDgu2000" parameterType="cn.com.windit.production.pojo.Dgu2000">
 		insert into Dgu2000
-		( id, ip, fengchang, xiangmuName, address, dateTime, addTime,
-		updateTime )
+		( id, ip, dateString, addTime )
 		values
-		( #{id}, #{ip}, #{fengchang}, #{xiangmuName}, #{address},
-		#{dateTime}, #{addTime}, #{updateTime} )
+		( #{id}, #{ip}, #{dateString}, #{addTime} )
 	</insert>
 
 	<update id="updateDgu2000" parameterType="cn.com.windit.production.pojo.Dgu2000">
 		update dgu2000
-		set ip = #{ip}, fengchang = #{fengchang},xiangmuName = #{xiangmuName},
-		address = #{address}, updateTime = #{updateTime}
+		set ip = #{ip}
 		where id = #{id}
 	</update>
 
@@ -49,11 +46,13 @@
 		resultMap="Dgu2000Map">
 		select * from Dgu2000
 		<where>
-			<if test="fengchang!=null"> 
-				fengchang like CONCAT('%', #{fengchang}, '%')
-			</if>
 			<if test="xiangmuName!=null"> 
-				and xiangmuName like CONCAT('%', #{xiangmuName}, '%')
+			 projectId in (select projectId from project
+				where projectName like CONCAT('%', #{xiangmuName}, '%')  
+				and windFarmId in
+				(select windFarmId from windFarm
+				where windFarmName like CONCAT('%', #{fengchang}, '%'))
+				)
 			</if>
 			<if test="startTime!=null and endTime!=null"> 
 				and ( addTime between #{startTime} and #{endTime} )

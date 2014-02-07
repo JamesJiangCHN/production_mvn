@@ -4,13 +4,11 @@ public class Dgu2000 {
 
 	private Integer id;
 	private String	ip;
-	private String	fengchang;
-	private String	xiangmuName;
-	private String	address;
-	private String	dateTime;
+	private String	dateString;
 	private Long	addTime;
-	private Long	updateTime;
-	private String	updateTimeString;
+	
+	private Project project;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -23,29 +21,11 @@ public class Dgu2000 {
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
-	public String getFengchang() {
-		return fengchang;
+	public String getDateString() {
+		return dateString;
 	}
-	public void setFengchang(String fengchang) {
-		this.fengchang = fengchang;
-	}
-	public String getXiangmuName() {
-		return xiangmuName;
-	}
-	public void setXiangmuName(String xiangmuName) {
-		this.xiangmuName = xiangmuName;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getDateTime() {
-		return dateTime;
-	}
-	public void setDateTime(String dateTime) {
-		this.dateTime = dateTime;
+	public void setDateString(String dateString) {
+		this.dateString = dateString;
 	}
 	public Long getAddTime() {
 		return addTime;
@@ -53,17 +33,11 @@ public class Dgu2000 {
 	public void setAddTime(Long addTime) {
 		this.addTime = addTime;
 	}
-	public Long getUpdateTime() {
-		return updateTime;
+	public Project getProject() {
+		return project;
 	}
-	public void setUpdateTime(Long updateTime) {
-		this.updateTime = updateTime;
-	}
-	public String getUpdateTimeString() {
-		return updateTimeString;
-	}
-	public void setUpdateTimeString(String updateTimeString) {
-		this.updateTimeString = updateTimeString;
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	
 }

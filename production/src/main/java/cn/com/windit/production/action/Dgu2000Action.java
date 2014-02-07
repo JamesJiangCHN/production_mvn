@@ -27,12 +27,6 @@ public class Dgu2000Action extends ActionSupport {
 
 	public String getAllDgu2000() {
 		dgu2000List = dgu2000Service.getAllDgu2000();
-		for (Dgu2000 tmpDgu2000 : dgu2000List) {
-			if (tmpDgu2000.getUpdateTime() != null)
-				tmpDgu2000.setUpdateTimeString((new SimpleDateFormat(
-						"yyyy-MM-dd HH:mm:ss")).format(new Date(tmpDgu2000
-						.getUpdateTime())));
-		}
 		return "dgu2000List";
 	}
 
@@ -45,10 +39,9 @@ public class Dgu2000Action extends ActionSupport {
 
 	public String add() {
 		Date date = new Date();
-		dgu2000.setDateTime((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"))
+		dgu2000.setDateString((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"))
 				.format(date));
 		dgu2000.setAddTime(date.getTime());
-		dgu2000.setUpdateTime(date.getTime());
 		dgu2000Service.insertDgu2000(dgu2000);
 		return "success";
 	}
@@ -59,7 +52,6 @@ public class Dgu2000Action extends ActionSupport {
 	}
 
 	public String update() {
-		dgu2000.setUpdateTime(new Date().getTime());
 		dgu2000Service.updateDgu2000(dgu2000);
 		return "success";
 	}
@@ -74,7 +66,7 @@ public class Dgu2000Action extends ActionSupport {
 				|| searchItem.getEndTime().isEmpty()) {
 			dgu2000List = dgu2000Service.getAllDgu2000();
 		} else {*/
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");// Ð¡Ð´µÄmm±íÊ¾µÄÊÇ·ÖÖÓ
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //mmæ˜¯åˆ†é’Ÿ
 			Map<String, Object> map = new HashMap<String, Object>();
 			try {
 				if (!searchItem.getStartTime().isEmpty()
