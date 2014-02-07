@@ -58,10 +58,9 @@
 				<tr>
 					<td><s:property value="id" /></td>
 					<td><s:property value="ip" /></td>
-					<td><s:property value="xiangmuName" /></td>
-					<td><s:property value="fengchang" /></td>
-					<td><s:property value="address" /></td>
-					<td><s:property value="dateTime" /></td>
+					<td><s:property value="project.projectName" /></td>
+					<td><s:property value="project.windFarm.windFarmName" /></td>
+					<td><s:property value="dateString" /></td>
 					<td><s:a action="dgu2000_updateUI" namespace="/">
 							<s:param name="dgu2000.id">${id}</s:param>修改</s:a> &nbsp;&nbsp;<s:a
 							action="dgu2000_delete" namespace="/">
