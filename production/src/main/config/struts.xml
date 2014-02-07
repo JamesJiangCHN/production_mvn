@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 指定默认编码集 ，作用于HttpServletRequest的setCharacterEncoding（）和freemarker，vilocity的输出 -->
+	<constant name="struts.configuration.xmlreload" value="true" />
+	<!-- 当struts配置文件修改时是否自动加载 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 开发模式下打印详细的错误信息 -->
+	<constant name="struts.ui.theme" value="simple" />
+
+	<package name="dgu2000" namespace="/" extends="struts-default">
+		<action name="dgu2000_*" class="cn.com.windit.production.action.Dgu2000Action" method="{1}">
+			<result name="success" type="redirectAction">dgu2000_getAllDgu2000.action</result>
+			<result name="input">/index.jsp</result>
+			<result name="dgu2000List">/dgu2000List.jsp</result>
+			<result name="add">/dgu2000Add.jsp</result>
+			<result name="update">/dgu2000Update.jsp</result>
+		</action>
+	</package>
+</struts>    

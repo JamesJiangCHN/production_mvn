@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE configuration    
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"    
+     "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 定义实体类的别名 -->
+	<typeAliases>
+		<!-- POJO -->
+		<typeAlias type="cn.com.windit.production.pojo.Dgu2000" alias="Dgu2000" />
+	</typeAliases>
+	<!--  
+    <mappers>
+    	<mapper resource="cn/com/windit/production/dao/Dgu2000/Dgu2000.xml"/>
+    </mappers>-->
+</configuration>
