@@ -1,13 +1,12 @@
-package cn.com.windit.production.dao;
+package cn.com.windit.production.service;
 
 import java.util.List;
 
 import cn.com.windit.production.pojo.Project;
 
-public interface IProjectDAO {
+public interface IProjectService {
 	
-	Project getProjectById(int projectId);
+	Project getProjectById(int id);
 	
 	List<Project> getAllProject();
-
 }

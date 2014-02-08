@@ -10,19 +10,16 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 
-<link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.css">
+<link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css">
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui-1.10.4.custom.js"></script>
-<script>
-	$(function() {
-		$("input[type=submit], a, button").button();
-	});
-</script>
+<script src="js/myui.js"></script>
 </head>
 
 <body>
 	<center>
 		<h1>添加采集器</h1>
+		<div style="text-align:left; margin:0 auto;width:250px;">
 		<s:form action="dgu2000_add" namespace="/" method="post">
 			<div>
 				<label>采集器id</label>
@@ -34,20 +31,14 @@
 			</div>
 			<div>
 				<label>项目名称</label>
-				<s:textfield label="项目名称" name="dgu2000.xiangmuName"></s:textfield>
-			</div>
-			<div>
-				<label>风场名称</label>
-				<s:textfield label="风场名称" name="dgu2000.fengchang"></s:textfield>
-			</div>
-			<div>
-				<label>风场地址</label>
-				<s:textfield label="地址" name="dgu2000.address"></s:textfield>
+				<s:select cssClass="combobox" list="projectList" name="project.projectId" listKey="projectId" listValue="projectName">
+				</s:select>
 			</div>
 			<div>
 				<s:submit value="提交"></s:submit>
 			</div>
 		</s:form>
+		</div>
 	</center>
 </body>
 </html>

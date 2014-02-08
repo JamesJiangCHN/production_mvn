@@ -9,16 +9,11 @@
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
-<link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.css">
+<link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css">
+<!-- <link rel="stylesheet" href="css/jquery-ui.css">-->
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui-1.10.4.custom.js"></script>
-<script>
-	$(function() {
-		$(".datepicker").datepicker();
-		$(".datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
-	});
-</script>
-
+<script src="js/myui.js"></script>
 </head>
 
 <body>
@@ -28,29 +23,28 @@
 			<s:a action="dgu2000_addUI" namespace="/">添加采集器</s:a>
 		</h3>
 		<s:form action="dgu2000_getDgu2000ByMap" namespace="/" method="post">
+			<fieldset>
 			<div>
 				<label>开始时间：</label>
-				<s:textfield cssClass="datepicker" label="startTime"
-					name="searchItem.startTime"></s:textfield>
+				<s:textfield cssClass="datepicker" label="startTime" title="选择开始时间"
+					name="searchItem.startTime"/>
 				<label>结束时间：</label>
-				<s:textfield cssClass="datepicker" label="endTime"
-					name="searchItem.endTime"></s:textfield>
-				<label>风场名称：</label>
-				<s:textfield label="fengchang"
-					name="searchItem.fengchang"></s:textfield>
+				<s:textfield cssClass="datepicker" label="endTime" title="选择结束时间"
+					name="searchItem.endTime"/>
 				<label>项目名称：</label>
-				<s:textfield  label="xiangmu"
-					name="searchItem.xiangmu"></s:textfield>
+				<s:textfield label="xiangmu" title="输入项目名称" name="searchItem.xiangmu"/>
+				<label>风场名称：</label>
+				<s:textfield label="fengchang" title="输入风场名称" name="searchItem.fengchang"/>
 				<s:submit value="查询"></s:submit>
 			</div>
+			</fieldset>
 		</s:form>
 		<table width="90%" border="1">
 			<tr>
-				<th>id</th>
-				<th>ip</th>
+				<th>采集器id</th>
+				<th>采集器ip</th>
 				<th>项目名称</th>
 				<th>风场名称</th>
-				<th>地址</th>
 				<th>添加时间</th>
 				<th>操作</th>
 			</tr>

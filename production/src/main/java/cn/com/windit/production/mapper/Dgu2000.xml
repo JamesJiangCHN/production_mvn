@@ -22,14 +22,14 @@
 
 	<insert id="insertDgu2000" parameterType="cn.com.windit.production.pojo.Dgu2000">
 		insert into Dgu2000
-		( id, ip, dateString, addTime )
+		( id, ip, dateString, addTime, projectId )
 		values
-		( #{id}, #{ip}, #{dateString}, #{addTime} )
+		( #{id}, #{ip}, #{dateString}, #{addTime}, #{project.projectId} )
 	</insert>
 
 	<update id="updateDgu2000" parameterType="cn.com.windit.production.pojo.Dgu2000">
 		update dgu2000
-		set ip = #{ip}
+		set ip = #{ip}, projectId = #{project.projectId}
 		where id = #{id}
 	</update>
 
