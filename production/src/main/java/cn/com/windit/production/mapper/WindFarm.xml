@@ -15,5 +15,9 @@
 		select * from WindFarm
 		where windFarmId = #{windFarmId}
 	</select>
+	
+	<select id="getAllWindFarm" resultMap="WindFarmMap">
+		select * from WindFarm
+	</select>
 
 </mapper>
