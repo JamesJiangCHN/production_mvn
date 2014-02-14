@@ -50,6 +50,7 @@
 			</tr>
 			<s:iterator value="projectList">
 				<tr>
+					<td><s:property value="projectId" /></td>
 					<td><s:property value="projectName" /></td>
 					<td><s:property value="windFarm.windFarmName" /></td>
 					<td><s:property value="dateString" /></td>
