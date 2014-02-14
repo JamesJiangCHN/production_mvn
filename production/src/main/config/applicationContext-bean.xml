@@ -36,6 +36,7 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 
+
 	<!-- Service -->
 	<bean id="dgu2000Service" class="cn.com.windit.production.service.Dgu2000Service" scope="prototype">
 		<property name="dgu2000DAO" ref="dgu2000DAO" />
@@ -46,6 +47,7 @@
 	<bean id="windFarmService" class="cn.com.windit.production.service.WindFarmService" scope="prototype">
 		<property name="windFarmDAO" ref="windFarmDAO" />
 	</bean>
+
 	
 	<!-- Action -->
 	<bean id="dgu2000Action" class="cn.com.windit.production.action.Dgu2000Action" scope="prototype">
@@ -56,7 +58,6 @@
 		<property name="projectService" ref="projectService" />
 		<property name="windFarmService" ref="windFarmService" />
 	</bean>
-	
 	<bean id="windFarmAction" class="cn.com.windit.production.action.WindFarmAction" scope="prototype">
 		<property name="windFarmService" ref="windFarmService" />
 	</bean>

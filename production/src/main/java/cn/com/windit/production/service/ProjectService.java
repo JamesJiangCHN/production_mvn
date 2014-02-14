@@ -36,10 +36,5 @@ public class ProjectService implements IProjectService {
 	public void setProjectDAO(IProjectDAO projectDAO) {
 		this.projectDAO = projectDAO;
 	}
-
-	
-
-
-	
 	
 }

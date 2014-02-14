@@ -124,4 +124,5 @@ public class ProjectAction extends ActionSupport {
 	public void setWindFarmService(IWindFarmService windFarmService) {
 		this.windFarmService = windFarmService;
 	}
+
 }

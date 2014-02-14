@@ -31,6 +31,4 @@ public class ProjectDAO implements IProjectDAO {
 		return sqlSessionTemplate.selectList("getAllProject");
 	}
 
-	
-
 }
