@@ -7,6 +7,9 @@
 		<id property="projectId" column="projectId" />
 		<!--普通属性映射 -->
 		<result property="projectName" column="projectName" />
+		<result property="dateString" column="dateString" />
+		<result property="dateTime" column="dateTime" />
+		<result property="personInCharge" column="personInCharge"/>
 		
 		<association property="windFarm"  column="windFarmId" javaType="cn.com.windit.production.pojo.WindFarm"
 		select="cn.com.windit.production.dao.IWindFarmDAO.getWindFarmById">
@@ -21,23 +24,21 @@
 
 	<insert id="insertProject" parameterType="cn.com.windit.production.pojo.Project">
 		insert into Project
-		( id, ip, fengchang, xiangmuName, address, dateTime, addTime,
-		updateTime )
+		( projectSerial, projectName, dateString, dateTime, personInCharge, windFarmId)
 		values
-		( #{id}, #{ip}, #{fengchang}, #{xiangmuName}, #{address},
-		#{dateTime}, #{addTime}, #{updateTime} )
+		( #{projectSerial}, #{projectName}, #{dateString}, #{dateTime}, #{personInCharge},  #{windFarm.windFarmId})
 	</insert>
 
 	<update id="updateProject" parameterType="cn.com.windit.production.pojo.Project">
 		update Project
-		set ip = #{ip}, fengchang = #{fengchang},xiangmuName = #{xiangmuName},
-		address = #{address}, updateTime = #{updateTime}
-		where id = #{id}
+		set projectSerial = #{projectSerial}, projectName = #{projectName}, dateString = #{dateString},
+		dateTime = #{dateTime},	personInCharge = #{personInCharge}, windFarmId = #{windFarm.windFarmId}
+		where projectId = #{projectId}
 	</update>
 
 	<delete id="deleteProjectById" parameterType="int">
 		delete from Project
-		where id = #{id}
+		where id = #{projectId}
 	</delete>
 
 	<select id="getAllProject" resultMap="ProjectMap">

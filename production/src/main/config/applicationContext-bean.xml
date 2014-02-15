@@ -27,14 +27,38 @@
 		<property name="mapperInterface" value="cn.com.windit.production.dao.Dgu2000.IDgu2000DAO" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
+	<bean id="projectDAO" class="org.mybatis.spring.mapper.MapperFactoryBean" scope="prototype">
+		<property name="mapperInterface" value="cn.com.windit.production.dao.IProjectDAO" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean id="windFarmDAO" class="org.mybatis.spring.mapper.MapperFactoryBean" scope="prototype">
+		<property name="mapperInterface" value="cn.com.windit.production.dao.IWindFarmDAO" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
 
 	<!-- Service -->
 	<bean id="dgu2000Service" class="cn.com.windit.production.service.Dgu2000Service" scope="prototype">
 		<property name="dgu2000DAO" ref="dgu2000DAO" />
 	</bean>
+	<bean id="projectService" class="cn.com.windit.production.service.ProjectService" scope="prototype">
+		<property name="projectDAO" ref="projectDAO" />
+	</bean>
+	<bean id="windFarmService" class="cn.com.windit.production.service.WindFarmService" scope="prototype">
+		<property name="windFarmDAO" ref="windFarmDAO" />
+	</bean>
+
 	
 	<!-- Action -->
 	<bean id="dgu2000Action" class="cn.com.windit.production.action.Dgu2000Action" scope="prototype">
 		<property name="dgu2000Service" ref="dgu2000Service" />
+		<property name="projectService" ref="projectService" />
+	</bean>
+	<bean id="projectAction" class="cn.com.windit.production.action.ProjectAction" scope="prototype">
+		<property name="projectService" ref="projectService" />
+		<property name="windFarmService" ref="windFarmService" />
+	</bean>
+	<bean id="windFarmAction" class="cn.com.windit.production.action.WindFarmAction" scope="prototype">
+		<property name="windFarmService" ref="windFarmService" />
 	</bean>
 </beans>

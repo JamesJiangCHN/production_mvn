@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>修改用户</title>
+<title>修改项目</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -19,22 +19,29 @@
 <body>
 	<center>
 
-		<h1>修改采集器</h1>
+		<h1>修改项目</h1>
 		<div style="text-align: left; margin: 0 auto; width: 250px;">
-			<s:form action="dgu2000_update" namespace="/" method="post">
+			<s:form action="project_update" namespace="/" method="post">
 
-				<s:hidden name="dgu2000.id"></s:hidden>
-				<div>
-					<label>采集器IP</label>
-					<s:textfield label="ip" name="dgu2000.ip"></s:textfield>
-				</div>
-				<!--<s:textfield label="项目名称" name="dgu2000.xiangmuName"></s:textfield>-->
+				<s:hidden name="project.projectId"></s:hidden>
 				<div>
 					<label>项目名称</label>
-					<s:select cssClass="combobox" list="projectList" name="project.projectId"
-						value="%{dgu2000.project.projectId}" listKey="projectId"
-						listValue="projectName">
+					<s:textfield label="projectName" name="project.projectName"></s:textfield>
+				</div>
+				<div>
+				<label>发货时间</label>
+				<s:textfield cssClass="datepicker" name="project.dateString"></s:textfield>
+				</div>
+				<div>
+					<label>关联风场</label>
+					<s:select cssClass="combobox" list="windFarmList" name="windFarm.windFarmId"
+						value="%{project.windFarm.windFarmId}" listKey="windFarmId"
+						listValue="windFarmName">
 					</s:select>
+				</div>
+				<div>
+					<label>负责人</label>
+					<s:textfield label="personInCharge" name="project.personInCharge"></s:textfield>
 				</div>
 				<s:submit value="提交"></s:submit>
 			</s:form>

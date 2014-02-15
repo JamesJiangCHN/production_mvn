@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>添加新用户</title>
+<title>添加项目</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -18,21 +18,26 @@
 
 <body>
 	<center>
-		<h1>添加采集器</h1>
+		<h1>添加项目</h1>
 		<div style="text-align:left; margin:0 auto;width:250px;">
-		<s:form action="dgu2000_add" namespace="/" method="post">
-			<div>
-				<label>采集器id</label>
-				<s:textfield label="采集器id" name="dgu2000.id"></s:textfield>
-			</div>
-			<div>
-				<label>采集器ip</label>
-				<s:textfield label="采集器ip" name="dgu2000.ip" value="192.168.0."></s:textfield>
-			</div>
+		<s:form action="project_add" namespace="/" method="post">
 			<div>
 				<label>项目名称</label>
-				<s:select cssClass="combobox" list="projectList" name="project.projectId" listKey="projectId" listValue="projectName">
+				<s:textfield name="project.projectName"></s:textfield>
+			</div>
+			<div>
+				<label>关联风场</label>
+				<s:select cssClass="combobox" list="windFarmList" name="windFarm.windFarmId"
+					listKey="windFarmId" listValue="windFarmName">
 				</s:select>
+			</div>
+			<div>
+				<label>发货时间</label>
+				<s:textfield cssClass="datepicker" name="project.dateString"></s:textfield>
+			</div>
+			<div>
+				<label>负责人</label>
+				<s:textfield name="project.personInCharge"></s:textfield>
 			</div>
 			<div>
 				<s:submit value="提交"></s:submit>
