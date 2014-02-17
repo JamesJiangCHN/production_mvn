@@ -24,14 +24,14 @@
 
 	<insert id="insertProject" parameterType="cn.com.windit.production.pojo.Project">
 		insert into Project
-		( projectSerial, projectName, dateString, dateTime, personInCharge, windFarmId)
+		( projectId, projectName, dateString, dateTime, personInCharge, windFarmId)
 		values
-		( #{projectSerial}, #{projectName}, #{dateString}, #{dateTime}, #{personInCharge},  #{windFarm.windFarmId})
+		( #{projectId}, #{projectName}, #{dateString}, #{dateTime}, #{personInCharge},  #{windFarm.windFarmId})
 	</insert>
 
 	<update id="updateProject" parameterType="cn.com.windit.production.pojo.Project">
 		update Project
-		set projectSerial = #{projectSerial}, projectName = #{projectName}, dateString = #{dateString},
+		set projectName = #{projectName}, dateString = #{dateString},
 		dateTime = #{dateTime},	personInCharge = #{personInCharge}, windFarmId = #{windFarm.windFarmId}
 		where projectId = #{projectId}
 	</update>
