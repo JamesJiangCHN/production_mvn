@@ -22,6 +22,10 @@
 		<div style="text-align:left; margin:0 auto;width:250px;">
 		<s:form action="project_add" namespace="/" method="post">
 			<div>
+				<label>项目编号</label>
+				<s:textfield name="project.projectId"></s:textfield>
+			</div>
+			<div>
 				<label>项目名称</label>
 				<s:textfield name="project.projectName"></s:textfield>
 			</div>
