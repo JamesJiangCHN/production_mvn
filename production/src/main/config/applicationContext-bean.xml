@@ -61,4 +61,9 @@
 	<bean id="windFarmAction" class="cn.com.windit.production.action.WindFarmAction" scope="prototype">
 		<property name="windFarmService" ref="windFarmService" />
 	</bean>
+	<bean id="globalAction" class="cn.com.windit.production.action.GlobalAction" scope="prototype">
+		<property name="projectService" ref="projectService" />
+		<property name="windFarmService" ref="windFarmService" />
+		<property name="dgu2000Service" ref="dgu2000Service" />
+	</bean>
 </beans>

@@ -43,4 +43,19 @@ public class Dgu2000DAO implements IDgu2000DAO {
 		return sqlSessionTemplate.selectList("getDgu2000ByMap", map);
 	}
 
+	@Override
+	public Integer getSumCount() {
+		return sqlSessionTemplate.selectOne("getSumCount");
+	}
+
+	@Override
+	public Integer getUsedCount() {
+		return sqlSessionTemplate.selectOne("getUsedCount");
+	}
+
+	@Override
+	public Integer getCountByProjectId(String projectId) {
+		return sqlSessionTemplate.selectOne("getCountByProjectId", projectId);
+	}
+
 }

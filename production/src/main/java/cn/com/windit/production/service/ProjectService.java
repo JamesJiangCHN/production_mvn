@@ -11,6 +11,11 @@ public class ProjectService implements IProjectService {
 	private IProjectDAO projectDAO;
 	
 	@Override
+	public Integer getSumCount() {
+		return projectDAO.getSumCount();
+	}
+	
+	@Override
 	public Project getProjectById(String ProjectId) {
 		return projectDAO.getProjectById(ProjectId);
 	}
@@ -50,4 +55,6 @@ public class ProjectService implements IProjectService {
 	public void setProjectDAO(IProjectDAO projectDAO) {
 		this.projectDAO = projectDAO;
 	}
+
+	
 }

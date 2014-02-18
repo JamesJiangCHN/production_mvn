@@ -12,8 +12,12 @@
 <link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css">
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui-1.10.4.custom.js"></script>
+<script src="js/jquery-migrate-1.0.0.js"></script>
+<script src="js/iealert.js" type="text/javascript"></script>
+<script src="js/index.js"></script>
 <script src="js/myui.js"></script>
 <link rel="stylesheet" href="css/mycss.css">
+<link rel="stylesheet" href="css/iealert.css">
 </head>
 
 <body>
@@ -80,11 +84,10 @@
 	</div>
 	<div>
 		<div id="maincontent">
-				<span>
-				<a href="dgu2000_getAllDgu2000.action">采集器列表</a>
-				<a href="project_getAllProject.action">项目列表</a>
-				<a href="windFarm_getAllWindFarm.action">风场列表</a>
-				</span>
+				到  <span id="clock"></span> 止<br/>
+				累计完成项目 <span id="pNum">0</span> 个        覆盖风场  <span id="wNum">0</span>  个<br/>
+				累计生产 <span id="dSumNum">0</span> 台        装机  <span id="dNum">0</span>  台<br/>
+				<br/>
 		</div>
 	</div>
 </body>

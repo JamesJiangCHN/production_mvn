@@ -14,8 +14,19 @@
 
 		</association>
 	</resultMap>
+	
+	<select id="getSumCount"  resultType="int">
+		select count(id) from Dgu2000
+	</select>
+	<select id="getUsedCount"  resultType="int">
+		select count(id) from Dgu2000 where projectId not in ("","1")
+	</select>
+	
+	<select id="getCountByProjectId" parameterType="String"  resultType="int">
+		select count(id) from Dgu2000 where #{projectId}
+	</select>
 
-	<select id="getDgu2000ById" parameterType="int" resultMap="Dgu2000Map">
+	<select id="getDgu2000ById" parameterType="String" resultMap="Dgu2000Map">
 		select * from Dgu2000
 		where id = #{id}
 	</select>
@@ -33,7 +44,7 @@
 		where id = #{id}
 	</update>
 
-	<delete id="deleteDgu2000ById" parameterType="int">
+	<delete id="deleteDgu2000ById" parameterType="String">
 		delete from dgu2000
 		where id = #{id}
 	</delete>

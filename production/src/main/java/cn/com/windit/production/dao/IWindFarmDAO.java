@@ -7,6 +7,8 @@ import cn.com.windit.production.pojo.WindFarm;
 
 public interface IWindFarmDAO {
 	
+	Integer getSumCount();
+	
 	WindFarm getWindFarmById(int windFarmId);
 	
 	List<WindFarm> getAllWindFarm();

@@ -47,4 +47,9 @@ public class ProjectDAO implements IProjectDAO {
 		return sqlSessionTemplate.delete("deleteRelation", projectId);
 	}
 
+	@Override
+	public Integer getSumCount() {
+		return sqlSessionTemplate.selectOne("getSumCount");
+	}
+
 }

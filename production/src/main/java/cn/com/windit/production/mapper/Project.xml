@@ -22,6 +22,10 @@
 		</collection>
 		
 	</resultMap>
+	
+	<select id="getSumCount" resultType="int">
+		select count(projectId) from Project
+	</select>
 
 	<select id="getProjectById" parameterType="int" resultMap="ProjectMap">
 		select * from Project

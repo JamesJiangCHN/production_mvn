@@ -56,6 +56,21 @@ public class Dgu2000Service implements IDgu2000Service {
 		dgu2000DAO = dgu2000dao;
 	}
 
+	@Override
+	public Integer getSumCount() {
+		return dgu2000DAO.getSumCount();
+	}
+
+	@Override
+	public Integer getUsedCount() {
+		return dgu2000DAO.getUsedCount();
+	}
+
+	@Override
+	public Integer getCountByProjectId(String projectId) {
+		return dgu2000DAO.getCountByProjectId(projectId);
+	}
+
 	
 	
 

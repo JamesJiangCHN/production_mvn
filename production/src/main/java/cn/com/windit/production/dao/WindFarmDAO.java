@@ -28,5 +28,9 @@ public class WindFarmDAO implements IWindFarmDAO {
 	public List<WindFarm> getListByMap(Map<String, Object> map) {
 		return sqlSessionTemplate.selectList("getListByMap", map);
 	}
+	@Override
+	public Integer getSumCount() {
+		return sqlSessionTemplate.selectOne("getSumCount");
+	}
 
 }

@@ -11,6 +11,11 @@ public class WindFarmService implements IWindFarmService {
 	private IWindFarmDAO windFarmDAO; 
 	
 	@Override
+	public Integer getSumCount() {
+		return windFarmDAO.getSumCount();
+	}
+	
+	@Override
 	public List<WindFarm> getAllWindFarm() {
 		return windFarmDAO.getAllWindFarm();
 	}
@@ -27,6 +32,8 @@ public class WindFarmService implements IWindFarmService {
 	public void setWindFarmDAO(IWindFarmDAO windFarmDAO) {
 		this.windFarmDAO = windFarmDAO;
 	}
+
+	
 
 	
 	

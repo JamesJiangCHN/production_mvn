@@ -7,6 +7,8 @@ import cn.com.windit.production.pojo.Project;
 
 public interface IProjectService {
 	
+	Integer getSumCount();
+	
 	Project getProjectById(String projectId);
 	
 	Integer insertProject(Project project);

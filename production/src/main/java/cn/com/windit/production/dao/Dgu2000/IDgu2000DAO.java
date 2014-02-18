@@ -7,6 +7,12 @@ import cn.com.windit.production.pojo.Dgu2000;
 
 public interface IDgu2000DAO {
 	
+	Integer getSumCount();
+	
+	Integer getUsedCount();
+	
+	Integer getCountByProjectId(String projectId);
+	
 	Dgu2000 getDgu2000ById(String id);
 	
 	Integer insertDgu2000(Dgu2000 dgu2000);
