@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 10.100.0.202
-Source Server Version : 50521
-Source Host           : 10.100.0.202:3306
+Source Server         : localhost
+Source Server Version : 50535
+Source Host           : localhost:3306
 Source Database       : production
 
 Target Server Type    : MYSQL
-Target Server Version : 50521
+Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-02-18 18:42:14
+Date: 2014-02-19 00:38:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,7 +36,7 @@ CREATE TABLE `dgu2000` (
   `ip` varchar(255) DEFAULT NULL,
   `dateString` varchar(255) DEFAULT NULL,
   `addTime` bigint(20) DEFAULT NULL,
-  `projectId` varchar(11) DEFAULT NULL,
+  `projectId` varchar(11) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -47,7 +47,7 @@ INSERT INTO `dgu2000` VALUES ('118', '192.168.0.118', '2014-02-18 17:55:49', '13
 INSERT INTO `dgu2000` VALUES ('12', '192.168.0.112', '2014-02-18 17:46:38', '1392716798109', '1');
 INSERT INTO `dgu2000` VALUES ('2', '192.168.0.90', '2014-02-06 01:03:11', '1391622882296', '1');
 INSERT INTO `dgu2000` VALUES ('3', '192.168.0.3', '2014-02-06 01:37:42', '1391622882296', '1');
-INSERT INTO `dgu2000` VALUES ('4', '192.168.0.4', '2014-02-06 01:38:23', '1391622882296', '1');
+INSERT INTO `dgu2000` VALUES ('4', '192.168.0.4', '2014-02-06 01:38:23', '1391622882296', '');
 INSERT INTO `dgu2000` VALUES ('5', '192.168.0.5', '2014-02-06 18:28:39', '1391682519526', '111');
 
 -- ----------------------------
