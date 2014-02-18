@@ -11,7 +11,7 @@ public class Dgu2000Service implements IDgu2000Service {
 	private IDgu2000DAO dgu2000DAO;
 
 	@Override
-	public Dgu2000 getDgu2000ById(int id) {
+	public Dgu2000 getDgu2000ById(String id) {
 		return dgu2000DAO.getDgu2000ById(id);
 	}
 	
@@ -27,7 +27,7 @@ public class Dgu2000Service implements IDgu2000Service {
 	}
 	
 	@Override
-	public Integer deleteDgu2000ById(int id) {
+	public Integer deleteDgu2000ById(String id) {
 		return dgu2000DAO.deleteDgu2000ById(id);
 	}
 	

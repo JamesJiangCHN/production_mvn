@@ -14,25 +14,13 @@ public class Dgu2000DAO implements IDgu2000DAO {
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public Dgu2000 getDgu2000ById(int id) {
+	public Dgu2000 getDgu2000ById(String id) {
 		return sqlSessionTemplate.selectOne("getDgu2000ById", id);
 	}
 
 	@Override
 	public Integer insertDgu2000(Dgu2000 dgu2000) {
 		return sqlSessionTemplate.insert("insertDgu2000", dgu2000);
-	}
-
-	@Override
-	public List<Dgu2000> getDgu2000ByFengchang(String fengchang) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Dgu2000> getDgu2000ByXiangmuName(String xiangmuName) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -46,7 +34,7 @@ public class Dgu2000DAO implements IDgu2000DAO {
 	}
 
 	@Override
-	public Integer deleteDgu2000ById(int id) {
+	public Integer deleteDgu2000ById(String id) {
 		return sqlSessionTemplate.delete("deleteDgu2000ById", id);
 	}
 

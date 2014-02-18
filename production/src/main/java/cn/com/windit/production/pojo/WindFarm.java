@@ -1,6 +1,13 @@
 package cn.com.windit.production.pojo;
 
-public class WindFarm {
+import java.io.Serializable;
+
+public class WindFarm implements Serializable  {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7952531797480016449L;
 	
 	private int windFarmId;
 	private String windFarmName;

@@ -1,0 +1,131 @@
+.main{
+	width:750px;
+	text-align:left;
+	margin-left: 20px;
+	margin:auto 0 
+}
+.title{
+	width:750px;
+	text-align:left;
+	float:left;
+	margin-left: 20px;
+}
+.nav{
+	float:left;
+	margin-left: 20px;
+}
+.content{
+	display:inline;
+	float:left;
+	border-style:groove;
+	margin-left: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+body
+{
+	background-color: #FFF;
+	font: normal 11px auto "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+	background-repeat: no-repeat;
+	padding: 0;
+	margin: 0;
+	background-image: url(../images/top.jpg);
+	background-position: center top;
+}
+#wid980
+{
+	height: 98px;
+	width: 980px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	position: relative;
+	z-index: 20;
+}
+#nav
+{
+	height: 42px;
+	width: 960px;
+	position: absolute;
+	left: 20px;
+	top: 56px;
+}
+#nav ul
+{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#nav ul li
+{
+	float: left;
+	font-size: 14px;
+	margin-right: 35px;
+}
+#nav ul li a
+{
+	padding-top: 20px;
+	width: 85px;
+	height: 22px;
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	font-size: 13px;
+	font-weight: bold;
+}
+#nav ul li a:active
+{
+	text-decoration: none;
+	color: #333;
+}
+#nav ul li a:hover
+{
+	text-decoration: none;
+	color: #29a38d;
+	background: url(../images/navselect.jpg) no-repeat center top;
+}
+#swf
+{
+	height: 400px;
+	width: 1280px;
+	z-index: 10;
+	text-align:center;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+#swf516
+{
+	left: 44px;
+	top: 132px;
+	height: 516px;
+	width: 1280px;
+	z-index: 10;
+	margin-right: auto;
+	margin-left: auto;
+}
+#maincontent {
+    height: 180px;
+    width: 650px;
+    text-align:center;
+    position:relative;
+    left:50%;
+    margin-left: -325px;
+    margin-top: -80px;
+    filter:alpha(Opacity=90);
+    -moz-opacity:0.9;
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.3) !important;
+    background:#FFF;
+    
+}
+#maincontent span{
+	position:relative;
+	color:#000;
+	font-size: 36px;
+}
+
+#content{
+	text-align:left; margin:60px auto;width:250px;
+}

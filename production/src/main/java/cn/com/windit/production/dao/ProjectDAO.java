@@ -1,6 +1,7 @@
 package cn.com.windit.production.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,21 @@ public class ProjectDAO implements IProjectDAO {
 	@Override
 	public List<Project> getAllProject() {
 		return sqlSessionTemplate.selectList("getAllProject");
+	}
+
+	@Override
+	public List<Project> getListByMap(Map<String, Object> map) {
+		return sqlSessionTemplate.selectList("getListByMap", map);
+	}
+
+	@Override
+	public Integer deleteProjectById(String projectId) {
+		return sqlSessionTemplate.delete("deleteProjectById", projectId);
+	}
+
+	@Override
+	public Integer deleteRelation(String projectId) {
+		return sqlSessionTemplate.delete("deleteRelation", projectId);
 	}
 
 }

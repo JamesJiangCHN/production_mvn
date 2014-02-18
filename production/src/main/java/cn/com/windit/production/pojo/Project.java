@@ -1,13 +1,22 @@
 package cn.com.windit.production.pojo;
 
-public class Project {
+import java.io.Serializable;
+import java.util.List;
+
+public class Project implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6338437310352060734L;
 	private String projectId;
 	private String projectName;
 	private String dateString;
 	private long dateTime;
 	private String personInCharge;
 	
-	private WindFarm windFarm;
+	private List<WindFarm> windFarmList;
+	
+	private List<Dgu2000> dgu2000List;
 	
 	public String getProjectId() {
 		return projectId;
@@ -39,13 +48,18 @@ public class Project {
 	public void setPersonInCharge(String personInCharge) {
 		this.personInCharge = personInCharge;
 	}
-	public WindFarm getWindFarm() {
-		return windFarm;
+	public List<WindFarm> getWindFarmList() {
+		return windFarmList;
 	}
-	public void setWindFarm(WindFarm windFarm) {
-		this.windFarm = windFarm;
+	public void setWindFarmList(List<WindFarm> windFarmList) {
+		this.windFarmList = windFarmList;
 	}
-	
+	public List<Dgu2000> getDgu2000List() {
+		return dgu2000List;
+	}
+	public void setDgu2000List(List<Dgu2000> dgu2000List) {
+		this.dgu2000List = dgu2000List;
+	}
 	@Override
 	public String toString(){
 		return this.projectName;

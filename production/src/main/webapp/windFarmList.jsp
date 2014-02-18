@@ -4,14 +4,14 @@
 <html>
 <head>
 
-<title>添加项目</title>
+<title>风场列表</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
-
 <link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css">
 <link rel="stylesheet" href="css/mycss.css">
+<!-- <link rel="stylesheet" href="css/jquery-ui.css">-->
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui-1.10.4.custom.js"></script>
 <script src="js/myui.js"></script>
@@ -19,7 +19,7 @@
 
 <body>
 	<center>
-		<div id="wid980" >
+	<div id="wid980" >
 		<div id="nav">
 	    <ul>
 	      <li>
@@ -45,35 +45,39 @@
 	    </ul>
 	  	</div>
 	</div>
-		<div id="content">
-		<s:form id="addForm" action="project_add" namespace="/" method="post">
+		<h3>
+			<s:a action="windFarm_addUI" namespace="/">添加风场</s:a>
+		</h3>
+		<s:form action="windFarm_getListByMap" namespace="/" method="post">
+			<fieldset>
 			<div>
-				<label>项目编号</label>
-				<s:textfield name="project.projectId"></s:textfield>
+				<label>风场名称：</label>
+				<s:textfield label="windFarmName" title="输入项目名称" name="searchItem.windFarmName"/>
+				<s:submit value="查询"></s:submit>
 			</div>
-			<div>
-				<label>项目名称</label>
-				<s:textfield name="project.projectName"></s:textfield>
-			</div>
-			<div>
-				<label>关联风场</label>
-				<s:select cssClass="combobox" list="windFarmList" name="windFarm.windFarmId"
-					listKey="windFarmId" listValue="windFarmName">
-				</s:select>
-			</div>
-			<div>
-				<label>发货时间</label>
-				<s:textfield cssClass="datepicker" name="project.dateString"></s:textfield>
-			</div>
-			<div>
-				<label>负 责 人</label>
-				<s:textfield name="project.personInCharge"></s:textfield>
-			</div>
-			<div>
-				<input type="button" id="addProject" value="提交"></input>
-			</div>
+			</fieldset>
 		</s:form>
-		</div>
+		<table width="90%" border="1">
+			<tr>
+				<th>风场编号</th>
+				<th>风场名称</th>
+				<th>操作</th>
+			</tr>
+			<s:iterator value="windFarmList">
+				<tr>
+					<td><s:property value="windFarmId" /></td>
+					<td><s:property value="windFarmName" /></td>
+					<td>
+						<s:a action="windFarm_updateUI" namespace="/">
+						<s:param name="windFarm.windFarmId">${windFarmId}</s:param>修改</s:a> &nbsp;&nbsp;
+						<s:a action="windFarm_delete" namespace="/">
+						<s:param name="windFarm.windFarmId">${windFarmId}</s:param>删除</s:a> &nbsp;&nbsp;
+						<s:a action="windFarm_addUI" namespace="/">
+						<s:param name="windFarmt.windFarmId">${windFarmId}</s:param>复制</s:a>
+						</td>
+				</tr>
+			</s:iterator>
+		</table>
 	</center>
 </body>
 </html>

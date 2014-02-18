@@ -1,13 +1,20 @@
 package cn.com.windit.production.pojo;
 
-public class SearchItem {
+import java.io.Serializable;
 
+public class SearchItem implements Serializable  {
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2246018298005048639L;
 	private String  startTime;
 	private String	endTime;
-	
-	private String	fengchang;
-	private String	xiangmu;
-	
+	private String	dgu2000Id;
+	private String  projectId;
+	private String	projectName;
+	private String	windFarmName;
 	public String getStartTime() {
 		return startTime;
 	}
@@ -20,19 +27,30 @@ public class SearchItem {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-	public String getFengchang() {
-		return fengchang;
+	public String getDgu2000Id() {
+		return dgu2000Id;
 	}
-	public void setFengchang(String fengchang) {
-		this.fengchang = fengchang;
+	public void setDgu2000Id(String dgu2000Id) {
+		this.dgu2000Id = dgu2000Id;
 	}
-	public String getXiangmu() {
-		return xiangmu;
+	public String getProjectId() {
+		return projectId;
 	}
-	public void setXiangmu(String xiangmu) {
-		this.xiangmu = xiangmu;
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
 	}
-	
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	public String getWindFarmName() {
+		return windFarmName;
+	}
+	public void setWindFarmName(String windFarmName) {
+		this.windFarmName = windFarmName;
+	}
 	
 	
 }

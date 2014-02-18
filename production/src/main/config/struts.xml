@@ -24,8 +24,27 @@
 			<result name="success" type="redirectAction">project_getAllProject.action</result>
 			<result name="input">/index.jsp</result>
 			<result name="projectList">/projectList.jsp</result>
+			<result name="getUI">/projectDetails.jsp</result>
 			<result name="addUI">/projectAdd.jsp</result>
 			<result name="updateUI">/projectUpdate.jsp</result>
+		</action>
+	</package>
+	
+	<package name="windFarm" namespace="/" extends="struts-default">
+		<action name="windFarm_*" class="cn.com.windit.production.action.WindFarmAction" method="{1}">
+			<result name="success" type="redirectAction">windFarm_getAllWindFarm.action</result>
+			<result name="input">/index.jsp</result>
+			<result name="list">/windFarmList.jsp</result>
+			<result name="getUI">/windFarmDetails.jsp</result>
+			<result name="addUI">/windFarmAdd.jsp</result>
+			<result name="updateUI">/windFarmUpdate.jsp</result>
+		</action>
+	</package>
+	<package name="projectJSON" namespace="/" extends="json-default">
+		<action name="projectJSON_*" class="cn.com.windit.production.action.ProjectAction" method="{1}">
+			<result type="json">
+				<param name="root">reDate</param>
+			</result>
 		</action>
 	</package>
 </struts>    

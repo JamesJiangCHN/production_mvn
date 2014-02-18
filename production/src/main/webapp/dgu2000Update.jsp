@@ -4,12 +4,13 @@
 <html>
 <head>
 
-<title>修改用户</title>
+<title>修改采集器</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css">
+<link rel="stylesheet" href="css/mycss.css">
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui-1.10.4.custom.js"></script>
 <script src="js/myui.js"></script>
@@ -19,16 +20,44 @@
 <body>
 	<center>
 
-		<h1>修改采集器</h1>
-		<div style="text-align: left; margin: 0 auto; width: 250px;">
+		<div id="wid980" >
+		<div id="nav">
+	    <ul>
+	      <li>
+	        <center>
+	          <a href="index.jsp" >首页</a>
+	        </center>
+	      </li>
+	      <li>
+	        <center>
+	          <a href="project_getAllProject.action">项目列表</a>
+	        </center>
+	      </li>
+	      <li>
+	        <center>
+	          <a href="dgu2000_getAllDgu2000.action">采集器列表</a>
+	        </center>
+	      </li>
+	      <li>
+	        <center>
+	          <a href="windFarm_getAllWindFarm.action">风场列表</a>
+	        </center>
+	      </li>
+	    </ul>
+	  	</div>
+	</div>
+		<div id="content">
 			<s:form action="dgu2000_update" namespace="/" method="post">
-
-				<s:hidden name="dgu2000.id"></s:hidden>
+				
+				<div>
+					<label>采集器Id</label>
+					<s:hidden name="dgu2000.id"></s:hidden>
+					<s:property  value="dgu2000.id"></s:property>
+				</div>
 				<div>
 					<label>采集器IP</label>
 					<s:textfield label="ip" name="dgu2000.ip"></s:textfield>
 				</div>
-				<!--<s:textfield label="项目名称" name="dgu2000.xiangmuName"></s:textfield>-->
 				<div>
 					<label>项目名称</label>
 					<s:select cssClass="combobox" list="projectList" name="project.projectId"

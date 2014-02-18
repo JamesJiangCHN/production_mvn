@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>添加项目</title>
+<title>项目详情</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -19,7 +19,7 @@
 
 <body>
 	<center>
-		<div id="wid980" >
+	<div id="wid980" >
 		<div id="nav">
 	    <ul>
 	      <li>
@@ -45,34 +45,43 @@
 	    </ul>
 	  	</div>
 	</div>
-		<div id="content">
-		<s:form id="addForm" action="project_add" namespace="/" method="post">
-			<div>
-				<label>项目编号</label>
-				<s:textfield name="project.projectId"></s:textfield>
+		<div class ="main">
+			<div class="nav">
+				<label>项目编号:</label>
+				<s:property value="project.projectId"/>
 			</div>
-			<div>
-				<label>项目名称</label>
-				<s:textfield name="project.projectName"></s:textfield>
+			<div class="nav">
+				<label>项目名称:</label>
+				<s:property value="project.projectName"/>
 			</div>
-			<div>
-				<label>关联风场</label>
-				<s:select cssClass="combobox" list="windFarmList" name="windFarm.windFarmId"
-					listKey="windFarmId" listValue="windFarmName">
-				</s:select>
+			<div class="nav">
+				<label>发货时间:</label>
+				<s:property value="project.dateString"/>
 			</div>
-			<div>
-				<label>发货时间</label>
-				<s:textfield cssClass="datepicker" name="project.dateString"></s:textfield>
+			<div class="nav">
+				<label>负 责 人:</label>
+				<s:property value="project.personInCharge"/>
 			</div>
-			<div>
-				<label>负 责 人</label>
-				<s:textfield name="project.personInCharge"></s:textfield>
+		</div>
+		<div class ="main">
+			<div class="title">
+				<label>关联风场:</label>
 			</div>
-			<div>
-				<input type="button" id="addProject" value="提交"></input>
-			</div>
-		</s:form>
+			<s:iterator value="project.windFarmList" >
+				<div class="content">
+					<s:property value="windFarmName"/>
+				</div>
+			</s:iterator>
+			
+		</div>
+		
+		<div class ="main">
+			<div class="title"><label>关联采集器:</label></div>
+			<s:iterator value="project.dgu2000List" >
+					<div class="content">
+						<s:property value="id"/>
+					</div>
+				</s:iterator>
 		</div>
 	</center>
 </body>

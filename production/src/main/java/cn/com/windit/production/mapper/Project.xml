@@ -11,9 +11,15 @@
 		<result property="dateTime" column="dateTime" />
 		<result property="personInCharge" column="personInCharge"/>
 		
-		<association property="windFarm"  column="windFarmId" javaType="cn.com.windit.production.pojo.WindFarm"
-		select="cn.com.windit.production.dao.IWindFarmDAO.getWindFarmById">
-		</association>
+		<collection property="windFarmList"  column="projectId" 
+		ofType="cn.com.windit.production.pojo.WindFarm"
+		select="cn.com.windit.production.dao.IWindFarmDAO.getListByProjectId">
+		</collection>
+		
+		<collection property="dgu2000List"  column="projectId" 
+		ofType="cn.com.windit.production.pojo.Dgu2000"
+		select="cn.com.windit.production.dao.Dgu2000.IDgu2000DAO.getListByProjectId">
+		</collection>
 		
 	</resultMap>
 
@@ -24,39 +30,51 @@
 
 	<insert id="insertProject" parameterType="cn.com.windit.production.pojo.Project">
 		insert into Project
-		( projectId, projectName, dateString, dateTime, personInCharge, windFarmId)
+		( projectId, projectName, dateString, dateTime, personInCharge)
 		values
-		( #{projectId}, #{projectName}, #{dateString}, #{dateTime}, #{personInCharge},  #{windFarm.windFarmId})
+		( #{projectId}, #{projectName}, #{dateString}, #{dateTime}, #{personInCharge})
+	</insert>
+	
+	<insert id="insertRelation" parameterType="cn.com.windit.production.pojo.ProjectAndWindFarm">
+		insert into ProjectAndWindFarm
+		(projectId, windFarmId)
+		values
+		(#{projectId}, #{windFarmId})
 	</insert>
 
 	<update id="updateProject" parameterType="cn.com.windit.production.pojo.Project">
 		update Project
 		set projectName = #{projectName}, dateString = #{dateString},
-		dateTime = #{dateTime},	personInCharge = #{personInCharge}, windFarmId = #{windFarm.windFarmId}
+		dateTime = #{dateTime},	personInCharge = #{personInCharge}
 		where projectId = #{projectId}
 	</update>
 
 	<delete id="deleteProjectById" parameterType="int">
 		delete from Project
-		where id = #{projectId}
+		where projectId = #{projectId}
+	</delete>
+	
+	<delete id="deleteRelation" parameterType="String">
+		delete from ProjectAndWindFarm
+		where projectId = #{projectId}
 	</delete>
 
 	<select id="getAllProject" resultMap="ProjectMap">
 		select * from project
 	</select>
 
-	<select id="getProjectByMap" parameterType="java.util.Map"
+	<select id="getListByMap" parameterType="java.util.Map"
 		resultMap="ProjectMap">
 		select * from Project
 		<where>
-			<if test="fengchang!=null"> 
-				fengchang like CONCAT('%', #{fengchang}, '%')
+			<if test="projectName!=null"> 
+				projectName like CONCAT('%', #{projectName}, '%')
 			</if>
-			<if test="xiangmuName!=null"> 
-				and xiangmuName like CONCAT('%', #{xiangmuName}, '%')
+			<if test="projectId!=null"> 
+				and projectId like CONCAT('%', #{projectId}, '%')
 			</if>
 			<if test="startTime!=null and endTime!=null"> 
-				and ( addTime between #{startTime} and #{endTime} )
+				and ( dateTime between #{startTime} and #{endTime} )
 			</if>
 		</where>
 	</select>

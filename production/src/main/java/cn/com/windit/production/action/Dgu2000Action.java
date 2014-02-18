@@ -39,7 +39,7 @@ public class Dgu2000Action extends ActionSupport {
 	public String addUI() {
 		if (dgu2000.getId() != null)
 			dgu2000 = dgu2000Service.getDgu2000ById(dgu2000.getId());
-		dgu2000.setId(0);
+		dgu2000.setId("0");
 		projectList = projectService.getAllProject();
 		return "add";
 	}
@@ -87,8 +87,8 @@ public class Dgu2000Action extends ActionSupport {
 						.getTime());
 					map.put("endTime", sdf.parse(searchItem.getEndTime()).getTime());
 				}
-				map.put("fengchang", searchItem.getFengchang().trim());
-				map.put("xiangmuName", searchItem.getXiangmu().trim());
+				map.put("windFarmName", searchItem.getWindFarmName().trim());
+				map.put("projectName", searchItem.getProjectName().trim());
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}

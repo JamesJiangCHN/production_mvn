@@ -19,5 +19,22 @@
 	<select id="getAllWindFarm" resultMap="WindFarmMap">
 		select * from WindFarm
 	</select>
+	
+	<select id="getListByProjectId" parameterType="String" resultMap="WindFarmMap">
+		select * from windFarm 
+		left join projectAndWindFarm
+		on windFarm.windFarmId = projectAndWindFarm.windFarmId
+		where projectAndWindFarm.projectId = #{projectId}
+	</select>
+	
+	<select id="getListByMap" parameterType="java.util.Map"
+		resultMap="WindFarmMap">
+		select * from windFarm
+		<where>
+			<if test="windFarmName!=null"> 
+				windFarmName like CONCAT('%', #{windFarmName}, '%')
+			</if>
+		</where>
+	</select>
 
 </mapper>

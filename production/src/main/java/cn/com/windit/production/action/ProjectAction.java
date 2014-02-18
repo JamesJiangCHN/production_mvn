@@ -2,9 +2,13 @@ package cn.com.windit.production.action;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cn.com.windit.production.pojo.Project;
+import cn.com.windit.production.pojo.SearchItem;
 import cn.com.windit.production.pojo.WindFarm;
 import cn.com.windit.production.service.IProjectService;
 import cn.com.windit.production.service.IWindFarmService;
@@ -20,8 +24,10 @@ public class ProjectAction extends ActionSupport {
 	
 	private Project project = new Project();
 	private WindFarm windFarm = new WindFarm();
+	private SearchItem searchItem = new SearchItem();
+	private String reDate = "";
 	private List<Project> projectList;
-	private List<WindFarm> windFarmList;
+	private List<WindFarm> windFarmList = new ArrayList<WindFarm>();
 	
 	private IProjectService projectService;
 	private IWindFarmService windFarmService;
@@ -29,6 +35,21 @@ public class ProjectAction extends ActionSupport {
 	public String getAllProject(){
 		projectList = projectService.getAllProject();
 		return "projectList";
+	}
+	
+	public String ifHasProject(){
+		project = projectService.getProjectById(project.getProjectId());
+		if(project == null){
+			reDate = "0";
+		}else{
+			reDate = "1";
+		}
+		return SUCCESS;
+	}
+	
+	public String getUI(){
+		project = projectService.getProjectById(project.getProjectId());
+		return "getUI";
 	}
 	
 	public String addUI(){
@@ -49,9 +70,10 @@ public class ProjectAction extends ActionSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		project.setWindFarm(windFarm);
+		windFarmList.add(windFarm);
+		project.setWindFarmList(windFarmList);
 		projectService.insertProject(project);
-		return "success";
+		return SUCCESS;
 	}
 	
 	public String updateUI(){
@@ -71,8 +93,32 @@ public class ProjectAction extends ActionSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		project.setWindFarm(windFarm);
+		project.setWindFarmList(windFarmList);
 		projectService.updateProject(project);
+		return "success";
+	}
+	
+	public String getListByMap() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //mm为分钟
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			if (!searchItem.getStartTime().isEmpty()
+					&& !searchItem.getEndTime().isEmpty()) {
+				map.put("startTime", sdf.parse(searchItem.getStartTime())
+					.getTime());
+				map.put("endTime", sdf.parse(searchItem.getEndTime()).getTime());
+			}
+			map.put("projectId", searchItem.getProjectId().trim());
+			map.put("projectName", searchItem.getProjectName().trim());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		projectList = projectService.getListByMap(map);
+		return "projectList";
+	}
+	
+	public String delete(){
+		projectService.deleteProjectById(project.getProjectId());
 		return "success";
 	}
 	
@@ -104,9 +150,17 @@ public class ProjectAction extends ActionSupport {
 	public List<WindFarm> getWindFarmList() {
 		return windFarmList;
 	}
-
+	
 	public void setWindFarmList(List<WindFarm> windFarmList) {
 		this.windFarmList = windFarmList;
+	}
+	
+	public SearchItem getSearchItem() {
+		return searchItem;
+	}
+
+	public void setSearchItem(SearchItem searchItem) {
+		this.searchItem = searchItem;
 	}
 
 	public IProjectService getProjectService() {
@@ -125,4 +179,11 @@ public class ProjectAction extends ActionSupport {
 		this.windFarmService = windFarmService;
 	}
 
+	public String getReDate() {
+		return reDate;
+	}
+
+	public void setReDate(String reDate) {
+		this.reDate = reDate;
+	}
 }

@@ -1,18 +1,24 @@
 package cn.com.windit.production.pojo;
 
-public class Dgu2000 {
+import java.io.Serializable;
 
-	private Integer id;
+public class Dgu2000 implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8166301377458577477L;
+	private String id;
 	private String	ip;
 	private String	dateString;
 	private Long	addTime;
 	
 	private Project project;
 	
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getIp() {

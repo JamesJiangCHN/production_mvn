@@ -41,35 +41,27 @@
 	<select id="getAllDgu2000" resultMap="Dgu2000Map">
 		select * from Dgu2000
 	</select>
+	
+	<select id="getListByProjectId" resultMap="Dgu2000Map">
+		select * from Dgu2000
+		where projectId = #{projectId}
+	</select>
 
 	<select id="getDgu2000ByMap" parameterType="java.util.Map"
 		resultMap="Dgu2000Map">
 		select * from Dgu2000
 		<where>
+			<if test="dgu2000Id!=null"> 
+				dgu2000Id like CONCAT('%', #{id}, '%') )
+			</if>
 			<if test="xiangmuName!=null"> 
-			 projectId in (select projectId from project
-				where projectName like CONCAT('%', #{xiangmuName}, '%')  
-				and windFarmId in
-				(select windFarmId from windFarm
-				where windFarmName like CONCAT('%', #{fengchang}, '%'))
-				)
+			 	and projectId in (select projectId from project
+				where projectName like CONCAT('%', #{projectName}, '%') )
 			</if>
 			<if test="startTime!=null and endTime!=null"> 
 				and ( addTime between #{startTime} and #{endTime} )
 			</if>
 		</where>
-	</select>
-
-	<select id="getDgu2000ByFengchang" parameterType="String"
-		resultMap="Dgu2000Map">
-		select * from Dgu2000
-		where fengchang = #{fengchang}
-	</select>
-
-	<select id="getDgu2000ByXiangmuName" parameterType="String"
-		resultMap="Dgu2000Map">
-		select * from Dgu2000
-		where xiangmuName = #{xiangmuName}
 	</select>
 
 </mapper>

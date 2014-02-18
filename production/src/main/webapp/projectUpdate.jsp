@@ -10,6 +10,7 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.css">
+<link rel="stylesheet" href="css/mycss.css">
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery-ui-1.10.4.custom.js"></script>
 <script src="js/myui.js"></script>
@@ -19,11 +20,40 @@
 <body>
 	<center>
 
-		<h1>修改项目</h1>
-		<div style="text-align: left; margin: 0 auto; width: 250px;">
+		<div id="wid980" >
+		<div id="nav">
+	    <ul>
+	      <li>
+	        <center>
+	          <a href="index.jsp" >首页</a>
+	        </center>
+	      </li>
+	      <li>
+	        <center>
+	          <a href="project_getAllProject.action">项目列表</a>
+	        </center>
+	      </li>
+	      <li>
+	        <center>
+	          <a href="dgu2000_getAllDgu2000.action">采集器列表</a>
+	        </center>
+	      </li>
+	      <li>
+	        <center>
+	          <a href="windFarm_getAllWindFarm.action">风场列表</a>
+	        </center>
+	      </li>
+	    </ul>
+	  	</div>
+	</div>
+		<div id="content">
 			<s:form action="project_update" namespace="/" method="post">
 
 				<s:hidden name="project.projectId"></s:hidden>
+				<div>
+					<label>项目编号</label>
+					<s:property value="project.projectName"></s:property>
+				</div>
 				<div>
 					<label>项目名称</label>
 					<s:textfield label="projectName" name="project.projectName"></s:textfield>
@@ -40,7 +70,7 @@
 					</s:select>
 				</div>
 				<div>
-					<label>负责人</label>
+					<label>负 责 人</label>
 					<s:textfield label="personInCharge" name="project.personInCharge"></s:textfield>
 				</div>
 				<s:submit value="提交"></s:submit>
