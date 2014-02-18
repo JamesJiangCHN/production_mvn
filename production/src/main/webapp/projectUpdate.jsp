@@ -48,11 +48,10 @@
 	</div>
 		<div id="content">
 			<s:form action="project_update" namespace="/" method="post">
-
-				<s:hidden name="project.projectId"></s:hidden>
 				<div>
 					<label>项目编号</label>
-					<s:property value="project.projectName"></s:property>
+					<s:hidden name="project.projectId"></s:hidden>
+					<s:property value="project.projectId"></s:property>
 				</div>
 				<div>
 					<label>项目名称</label>
