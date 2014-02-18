@@ -44,7 +44,7 @@ function initialize($obj, support, title, text){
 				
 			}
 
-			if ($.browser.msie  && parseInt($.browser.version, 10) < 8) {
+			if ($.browser.msie  && parseInt($.browser.version, 10) === 6) {
 
 				
 				$("#ie-alert-panel").css("background-position","-626px -116px");
