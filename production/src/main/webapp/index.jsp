@@ -49,7 +49,7 @@
 	</div>
 	<div id="swf">
 		<object id="FlashID"
-			classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="400"
+			classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="560"
 			width="1280">
 			<param name="movie" value="swf/index.swf">
 			<param name="quality" value="high">
@@ -82,13 +82,11 @@
 			<!--<![endif]-->
 		</object>
 	</div>
-	<div>
-		<div id="maincontent">
-				到  <span id="clock"></span> 止<br/>
-				累计完成项目 <span id="pNum">0</span> 个        覆盖风场  <span id="wNum">0</span>  个<br/>
-				累计生产 <span id="dSumNum">0</span> 台        装机  <span id="dNum">0</span>  台<br/>
-				<br/>
-		</div>
+	<div id="maincontent">
+			到  <span id="clock"></span> 止<br/>
+			累计完成项目 <span id="pNum">0</span> 个        覆盖风场  <span id="wNum">0</span>  个<br/>
+			累计生产 <span id="dSumNum">0</span> 台        装机  <span id="dNum">0</span>  台<br/>
+			<br/>
 	</div>
 </body>
 </html>

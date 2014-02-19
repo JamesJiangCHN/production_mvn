@@ -1,8 +1,24 @@
+body
+{
+	background-color: #FFF;
+	font: normal 11px auto "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+	background-repeat: no-repeat;
+	padding: 0px;
+	margin: 0px auto;
+	text-align:center;
+	background-image: url(../images/top.jpg);
+	background-position: center top;
+	PADDING-LEFT: 0px; 
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+	
+}
+
 .main{
 	width:750px;
 	text-align:left;
 	margin-left: 20px;
-	margin:auto 0 
+	margin:auto 0px 
 }
 .title{
 	width:750px;
@@ -22,16 +38,7 @@
 	padding-left: 20px;
 	padding-right: 20px;
 }
-body
-{
-	background-color: #FFF;
-	font: normal 11px auto "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
-	background-repeat: no-repeat;
-	padding: 0;
-	margin: 0;
-	background-image: url(../images/top.jpg);
-	background-position: center top;
-}
+
 
 fieldset
 {
@@ -92,13 +99,10 @@ fieldset
 }
 #swf
 {
-	height: 400px;
+	height: 560px;
 	width: 1280px;
 	z-index: 10;
-	text-align:center;
-	margin-right: auto;
-	margin-left: auto;
-
+	margin: 0px auto;
 }
 #swf516
 {
@@ -113,11 +117,11 @@ fieldset
 #maincontent {
     height: 180px;
     width: 650px;
+    margin-right: auto;
+	margin-left: auto;
+	margin-top: -210px;
     text-align:center;
     position:relative;
-    left:50%;
-    margin-left: -325px;
-    margin-top: -50px;
     filter:alpha(Opacity=90);
     -moz-opacity:0.9;
     opacity: 0.9;

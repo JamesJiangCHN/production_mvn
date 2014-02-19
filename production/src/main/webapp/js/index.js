@@ -1,5 +1,6 @@
 $(function() {
 	setInterval(get_time,1000);
+	$("body").iealert();
 	$.get("globalJSON_getCount.action", function(data){
 		$("#pNum").html(data.projectNum);
 		$("#wNum").html(data.windFarmNum);
