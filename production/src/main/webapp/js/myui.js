@@ -1,8 +1,10 @@
 $(function() {
 	$("input[type=submit], button").button();
 	$("input[type=button], button").button();
+	$("#id").val($("#id").value());
 	$(".datepicker").datepicker();
 	$(".datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
+	
 	//$(".combobox").combobox();
 	$(document).tooltip();
 	$("#addProject").click(function(){

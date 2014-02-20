@@ -59,21 +59,25 @@
 		</s:form>
 		<table width="90%" border="1">
 			<tr>
-				<th>风场编号</th>
 				<th>风场名称</th>
+				<th>地址</th>
+				<th>联系人</th>
+				<th>联系电话</th>
 				<th>操作</th>
 			</tr>
 			<s:iterator value="windFarmList">
 				<tr>
-					<td><s:property value="windFarmId" /></td>
 					<td><s:property value="windFarmName" /></td>
+					<td><s:property value="address" /></td>
+					<td><s:property value="people" /></td>
+					<td><s:property value="phone" /></td>
 					<td>
 						<s:a action="windFarm_updateUI" namespace="/">
 						<s:param name="windFarm.windFarmId">${windFarmId}</s:param>修改</s:a> &nbsp;&nbsp;
 						<s:a action="windFarm_delete" namespace="/">
 						<s:param name="windFarm.windFarmId">${windFarmId}</s:param>删除</s:a> &nbsp;&nbsp;
 						<s:a action="windFarm_addUI" namespace="/">
-						<s:param name="windFarmt.windFarmId">${windFarmId}</s:param>复制</s:a>
+						<s:param name="windFarm.windFarmId">${windFarmId}</s:param>复制</s:a>
 						</td>
 				</tr>
 			</s:iterator>

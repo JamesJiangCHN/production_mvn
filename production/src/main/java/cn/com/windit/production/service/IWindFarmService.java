@@ -9,6 +9,14 @@ public interface IWindFarmService {
 	
 	Integer getSumCount();
 	
+	WindFarm getWindFarmById(int windFarmId);
+	
+	Integer insertWindFarm(WindFarm windFarm);
+	
+	Integer updateWindFarm(WindFarm windFarm);	
+	
+	Integer deleteWindFarmById(int windFarmId);
+	
 	List<WindFarm> getAllWindFarm();
 	
 	List<WindFarm> getListByMap(Map<String, Object> map);

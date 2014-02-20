@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>修改项目</title>
+<title>修改风场</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -47,30 +47,25 @@
 	  	</div>
 	</div>
 		<div id="content">
-			<s:form action="project_update" namespace="/" method="post">
+			<s:form action="windFarm_update" namespace="/" method="post">
 				<div>
-					<label>项目编号</label>
-					<s:hidden name="project.projectId"></s:hidden>
-					<s:property value="project.projectId"></s:property>
+					<s:hidden name="windFarm.windFarmId"></s:hidden>
 				</div>
 				<div>
-					<label>项目名称</label>
-					<s:textfield label="projectName" name="project.projectName"></s:textfield>
+					<label>风场名称</label>
+					<s:textfield label="windFarmName" name="windFarm.windFarmName"></s:textfield>
 				</div>
 				<div>
-				<label>发货时间</label>
-				<s:textfield id="date" cssClass="datepicker" name="project.dateString"></s:textfield>
+					<label>风场地址</label>
+					<s:textfield name="windFarm.address"></s:textfield>
 				</div>
 				<div>
-					<label>关联风场</label>
-					<s:select cssClass="combobox" list="windFarmList" name="windFarm.windFarmId"
-						value="%{project.windFarm.windFarmId}" listKey="windFarmId"
-						listValue="windFarmName">
-					</s:select>
+					<label>联 系 人</label>
+					<s:textfield name="windFarm.people"></s:textfield>
 				</div>
 				<div>
-					<label>负 责 人</label>
-					<s:textfield label="personInCharge" name="project.personInCharge"></s:textfield>
+					<label>联系电话</label>
+					<s:textfield name="windFarm.phone"></s:textfield>
 				</div>
 				<s:submit value="提交"></s:submit>
 			</s:form>

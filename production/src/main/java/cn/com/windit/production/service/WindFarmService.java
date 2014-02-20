@@ -14,6 +14,26 @@ public class WindFarmService implements IWindFarmService {
 	public Integer getSumCount() {
 		return windFarmDAO.getSumCount();
 	}
+
+	@Override
+	public WindFarm getWindFarmById(int windFarmId) {
+		return windFarmDAO.getWindFarmById(windFarmId);
+	}
+
+	@Override
+	public Integer insertWindFarm(WindFarm windFarm) {
+		return windFarmDAO.insertWindFarm(windFarm);
+	}
+
+	@Override
+	public Integer updateWindFarm(WindFarm windFarm) {
+		return windFarmDAO.updateWindFarm(windFarm);
+	}
+	
+	@Override
+	public Integer deleteWindFarmById(int windFarmId) {
+		return windFarmDAO.deleteWindFarmById(windFarmId);
+	}
 	
 	@Override
 	public List<WindFarm> getAllWindFarm() {
@@ -33,9 +53,4 @@ public class WindFarmService implements IWindFarmService {
 		this.windFarmDAO = windFarmDAO;
 	}
 
-	
-
-	
-	
-	
 }

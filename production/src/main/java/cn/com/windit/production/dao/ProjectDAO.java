@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.com.windit.production.pojo.Project;
+import cn.com.windit.production.pojo.ProjectAndWindFarm;
 
 public class ProjectDAO implements IProjectDAO {
 	
@@ -22,6 +23,12 @@ public class ProjectDAO implements IProjectDAO {
 	public Integer insertProject(Project project){
 		return sqlSessionTemplate.insert("insertProject", project);
 	}
+	
+	@Override
+	public Integer insertRelation(ProjectAndWindFarm projectAndWindFarm) {
+		return sqlSessionTemplate.insert("insertRelation", projectAndWindFarm);
+	}
+	
 	@Override
 	public Integer updateProject(Project project) {
 		return sqlSessionTemplate.update("updateProject", project);
@@ -51,5 +58,7 @@ public class ProjectDAO implements IProjectDAO {
 	public Integer getSumCount() {
 		return sqlSessionTemplate.selectOne("getSumCount");
 	}
+
+	
 
 }

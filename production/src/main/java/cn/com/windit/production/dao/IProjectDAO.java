@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import cn.com.windit.production.pojo.Project;
+import cn.com.windit.production.pojo.ProjectAndWindFarm;
 
 public interface IProjectDAO {
 	
@@ -12,6 +13,8 @@ public interface IProjectDAO {
 	Project getProjectById(String projectId);
 	
 	Integer insertProject(Project project);
+	
+	Integer insertRelation(ProjectAndWindFarm projectAndWindFarm);
 	
 	Integer updateProject(Project project);
 	

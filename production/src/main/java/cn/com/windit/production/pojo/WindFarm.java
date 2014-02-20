@@ -12,6 +12,8 @@ public class WindFarm implements Serializable  {
 	private int windFarmId;
 	private String windFarmName;
 	private String address;
+	private String people;
+	private String phone;
 	
 	public int getWindFarmId() {
 		return windFarmId;
@@ -30,6 +32,18 @@ public class WindFarm implements Serializable  {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getPeople() {
+		return people;
+	}
+	public void setPeople(String people) {
+		this.people = people;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	

@@ -9,6 +9,7 @@ import cn.com.windit.production.pojo.SearchItem;
 import cn.com.windit.production.pojo.WindFarm;
 import cn.com.windit.production.service.IWindFarmService;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class WindFarmAction extends ActionSupport {
@@ -34,6 +35,38 @@ public class WindFarmAction extends ActionSupport {
 		map.put("windFarmName", searchItem.getWindFarmName());
 		windFarmList = windFarmService.getListByMap(map);
 		return "list";
+	}
+	
+	public String getUI(){
+		windFarm = windFarmService.getWindFarmById(windFarm.getWindFarmId());
+		return "getUI";
+	}
+	
+	public String addUI(){
+		if(windFarm.getWindFarmId() != 0){
+			windFarm = windFarmService.getWindFarmById(windFarm.getWindFarmId());
+		}
+		return "addUI";
+	}
+	
+	public String add(){
+		windFarmService.insertWindFarm(windFarm);
+		return SUCCESS;
+	}
+	
+	public String updateUI(){
+		windFarm = windFarmService.getWindFarmById(windFarm.getWindFarmId());
+		return "updateUI";
+	}
+	
+	public String update(){
+		windFarmService.updateWindFarm(windFarm);
+		return Action.SUCCESS;
+	}
+	
+	public String delete(){
+		windFarmService.deleteWindFarmById(windFarm.getWindFarmId());
+		return Action.SUCCESS;
 	}
 	
 	public WindFarm getWindFarm() {

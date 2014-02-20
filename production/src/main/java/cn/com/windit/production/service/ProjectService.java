@@ -5,6 +5,8 @@ import java.util.Map;
 
 import cn.com.windit.production.dao.IProjectDAO;
 import cn.com.windit.production.pojo.Project;
+import cn.com.windit.production.pojo.ProjectAndWindFarm;
+import cn.com.windit.production.pojo.WindFarm;
 
 public class ProjectService implements IProjectService {
 
@@ -22,12 +24,39 @@ public class ProjectService implements IProjectService {
 	
 	@Override
 	public Integer insertProject(Project project){
-		return projectDAO.insertProject(project);
+		Integer reNum = 0;
+		reNum = projectDAO.insertProject(project);
+		if( reNum > 0){
+			ProjectAndWindFarm projectAndWindFarm = new ProjectAndWindFarm();
+			
+			for (WindFarm windFarm : project.getWindFarmList()) {
+				projectAndWindFarm.setProjectId(project.getProjectId());
+				projectAndWindFarm.setWindFarmId(windFarm.getWindFarmId());
+			}
+			
+			projectDAO.insertRelation(projectAndWindFarm);
+		}
+		
+		return reNum;
 	}
 	
 	@Override
 	public Integer updateProject(Project project) {
-		return projectDAO.updateProject(project);
+		Integer reNum = 0; 
+		reNum = projectDAO.updateProject(project);
+		
+		if( reNum > 0){
+			ProjectAndWindFarm projectAndWindFarm = new ProjectAndWindFarm();
+			
+			for (WindFarm windFarm : project.getWindFarmList()) {
+				projectAndWindFarm.setProjectId(project.getProjectId());
+				projectAndWindFarm.setWindFarmId(windFarm.getWindFarmId());
+			}
+			
+			projectDAO.insertRelation(projectAndWindFarm);
+		}
+		
+		return reNum;
 	}
 	
 	@Override

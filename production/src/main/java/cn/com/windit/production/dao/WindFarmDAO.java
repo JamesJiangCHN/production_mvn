@@ -16,6 +16,21 @@ public class WindFarmDAO implements IWindFarmDAO {
 	public WindFarm getWindFarmById(int windFarmId) {
 		return sqlSessionTemplate.selectOne("getWindFarmById", windFarmId);
 	}
+	
+	@Override
+	public Integer insertWindFarm(WindFarm windFarm) {
+		return sqlSessionTemplate.insert("insertWindFarm", windFarm);
+	}
+	@Override
+	public Integer updateWindFarm(WindFarm windFarm) {
+		return sqlSessionTemplate.update("updateWindFarm", windFarm);
+	}
+	
+	@Override
+	public Integer deleteWindFarmById(int windFarmId) {
+		return sqlSessionTemplate.delete("deleteWindFarmById", windFarmId);
+	}
+	
 	@Override
 	public List<WindFarm> getAllWindFarm(){
 		return sqlSessionTemplate.selectList("getAllWindFarmById");
@@ -32,5 +47,8 @@ public class WindFarmDAO implements IWindFarmDAO {
 	public Integer getSumCount() {
 		return sqlSessionTemplate.selectOne("getSumCount");
 	}
+
+	
+
 
 }

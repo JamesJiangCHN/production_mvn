@@ -8,6 +8,8 @@
 		<!--普通属性映射 -->
 		<result property="windFarmName" column="windFarmName" />
 		<result property="address" column="address" />
+		<result property="people" column="people"/>
+		<result property="phone" column="phone"/>
 		
 	</resultMap>
 	
@@ -19,6 +21,25 @@
 		select * from WindFarm
 		where windFarmId = #{windFarmId}
 	</select>
+	
+	<insert id="insertWindFarm">
+		insert into windFarm
+			(windFarmName, address, people, phone)
+		values
+			(#{windFarmName}, #{address}, #{people}, #{phone})
+	</insert>
+	
+	<update id="updateWindFarm">
+		update windFarm 
+		set	windFarmName = #{windFarmName},address = #{address}, 
+			people = #{people}, phone = #{phone} 
+		where windFarmId = #{windFarmId} 
+	</update>
+	
+	<delete id="deleteWindFarmById">
+		delete from windFarm 
+		where windFarmId = #{windFarmId}
+	</delete>
 	
 	<select id="getAllWindFarm" resultMap="WindFarmMap">
 		select * from WindFarm

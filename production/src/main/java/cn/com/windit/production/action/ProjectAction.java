@@ -93,6 +93,7 @@ public class ProjectAction extends ActionSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		windFarmList.add(windFarm);
 		project.setWindFarmList(windFarmList);
 		projectService.updateProject(project);
 		return "success";
