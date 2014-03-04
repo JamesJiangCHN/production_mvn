@@ -8,6 +8,10 @@
 	<constant name="struts.devMode" value="true" />
 	<!-- 开发模式下打印详细的错误信息 -->
 	<constant name="struts.ui.theme" value="simple" />
+	<!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
+    <constant name="struts.multipart.maxSize" value="10701096"/>
+    <!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
+    <constant name="struts.multipart.saveDir " value="d:/tmp" />
 
 	<package name="dgu2000" namespace="/" extends="struts-default">
 		<action name="dgu2000_*" class="cn.com.windit.production.action.Dgu2000Action" method="{1}">
@@ -55,4 +59,27 @@
 			</result>
 		</action>
 	</package>
+	
+	 <package name="uploadUI" namespace="/" extends="struts-default">
+        <action name="uploadUI_*" class="cn.com.windit.production.action.UploadAction" method="{1}">
+            <result name="success">/fileUpload.jsp</result>
+        </action>
+    </package>
+    
+    <package name="upload" extends="struts-default">
+        <action name="upload_*" class="cn.com.windit.production.action.UploadAction" method="execute">
+            <!-- 动态设置savePath的属性值 -->
+            <param name="savePath">/files</param>
+            <result name="success">/fileUpload.jsp</result>
+            <result name="input">/fileUpload.jsp</result>
+            <interceptor-ref name="fileUpload">
+                <!-- 文件过滤 
+                <param name="allowedTypes">*</param>-->
+                <!-- 文件大小, 以字节为单位 -->
+                <param name="maximumSize">1025956</param>
+            </interceptor-ref>
+            <!-- 默认拦截器必须放在fileUpload之后，否则无效 -->
+            <interceptor-ref name="defaultStack" />
+        </action>
+    </package>
 </struts>    
