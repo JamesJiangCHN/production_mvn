@@ -41,6 +41,9 @@ public class Dgu2000Action extends ActionSupport {
 			dgu2000 = dgu2000Service.getDgu2000ById(dgu2000.getId());
 		dgu2000.setId("0");
 		projectList = projectService.getAllProject();
+		Project emptyProject = new Project();
+		emptyProject.setProjectName("无");
+		projectList.add(0, emptyProject);
 		return "add";
 	}
 
@@ -58,6 +61,9 @@ public class Dgu2000Action extends ActionSupport {
 	public String updateUI() {
 		dgu2000 = dgu2000Service.getDgu2000ById(dgu2000.getId());
 		projectList = projectService.getAllProject();
+		Project emptyProject = new Project();
+		emptyProject.setProjectName("无");
+		projectList.add(0, emptyProject);
 		return "update";
 	}
 
