@@ -45,6 +45,7 @@
 	    </ul>
 	  	</div>
 	</div>
+	<div>
 		<div class ="main">
 			<div class="nav">
 				<label>项目编号:</label>
@@ -83,6 +84,7 @@
 					</div>
 				</s:iterator>
 		</div>
+	</div>
 	</center>
 </body>
 </html>
