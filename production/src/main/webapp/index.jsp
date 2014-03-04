@@ -44,6 +44,11 @@
 	          <a href="windFarm_getAllWindFarm.action">风场列表</a>
 	        </center>
 	      </li>
+	      <li>
+	        <center>
+	          <a href="uploadUI_uploadUI.action">上传文件</a>
+	        </center>
+	      </li>
 	    </ul>
 	  	</div>
 	</div>
